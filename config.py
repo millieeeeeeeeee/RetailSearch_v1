@@ -11,7 +11,7 @@ def access_secret_version(project_id, secret_id, version_id="latest"):
     return secret_string
 
 # 你 GCP 專案 ID
-PROJECT_ID = "gen-lang-client-0700041250"
+PROJECT_ID = "retailagent-471105"
 
 access_token = access_secret_version(PROJECT_ID, "LINE_CHANNEL_ACCESS_TOKEN")
 secret = access_secret_version(PROJECT_ID, "LINE_CHANNEL_SECRET")
@@ -19,4 +19,5 @@ secret = access_secret_version(PROJECT_ID, "LINE_CHANNEL_SECRET")
 API_KEY = access_secret_version(PROJECT_ID, "API_KEY")
 PAGE_Orders = access_secret_version(PROJECT_ID, "PAGE_Orders")#36
 PAGE_Customers = access_secret_version(PROJECT_ID, "PAGE_Customers")#41
+
 PAGE_Inventory = access_secret_version(PROJECT_ID, "PAGE_Inventory")#32
