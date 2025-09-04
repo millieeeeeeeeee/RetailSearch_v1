@@ -32,10 +32,20 @@
 2. 使用指南
 3. 查無資料
 > text_product.py
+
+1. 商品編號查詢商品資料
 > text_product_dict.py
+
+1. 商品名稱查詢商品索引
 > text_order.py
+
+1. 訂單編號查詢訂單明細
 > text_member.py
+
+1. 會員ID/會員電話查詢會員資料
 > setting_text.py
+
+1. 收到文字訊息的回覆邏輯處理
 
 ## 設定檔
 > config.py
