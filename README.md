@@ -5,8 +5,7 @@
 ├── main.py              # 主程式入口
 ├── config.py            # 設定檔（環境變數、密碼等）
 ├── utils/               # 工具函數模組
-│              
-├── images/              # 圖片資源
+
 │ 
 ├── Dockerfile           # Docker 建置檔
 ├── requirements.txt     # Python 依賴套件
@@ -20,13 +19,19 @@
 |操作|流程|內容| 
 |------------|----------|--------|
 |首次加入好友|無|歡迎訊息 + 使用指南|  
-|收到文字訊息|無|使用指南|  
+|收到M+4碼數字|查會員ID|會員資料|  
+|收到數字|查會員電話|會員資料| 
+|收到P+4碼數字|查商品編號|商品資料| 
+|收到O+4碼數字|查訂單編號|訂單明細| 
+|收到其他文字|查商品名稱|商品索引| 
+|收到其他文字且查不到資料|查商品編號|查無資料 + 使用指南| 
 
 ## 工具函數模組
 > user_message.py
 
 1. 歡迎訊息
 2. 使用指南
+3. 查無資料
 > setting_richmenu.py
 
 1. 設定主選單(圖片、功能數量、回傳參數)
@@ -36,6 +41,12 @@
 1. Linebot
    - access_token
    - secret
+3. Ragic!
+   - API_key
+   - PAGE_Orders(URL)
+   - PAGE_Inventory(URL)
+   - PAGE_Customers(URL)
+
 
 ## 專案技術
 - line-bot-sdk
