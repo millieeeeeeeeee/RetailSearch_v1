@@ -1,4 +1,3 @@
-# 使用官方 Python 3.11 映像
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -8,6 +7,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Cloud Run 自動用 $PORT
 ENV PORT=8080
-CMD exec gunicorn --bind :$PORT main:app
+
+# Gunicorn 啟動 Flask app
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "main:app", "--workers", "1", "--threads", "8"]
