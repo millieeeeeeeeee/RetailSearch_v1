@@ -32,9 +32,11 @@
 1. 歡迎訊息
 2. 使用指南
 3. 查無資料
-> setting_richmenu.py
-
-1. 設定主選單(圖片、功能數量、回傳參數)
+> text_product.py
+> text_product_dict.py
+> text_order.py
+> text_member.py
+> setting_text.py
 
 ## 設定檔
 > config.py
