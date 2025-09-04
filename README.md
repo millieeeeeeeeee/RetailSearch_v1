@@ -5,7 +5,6 @@
 ├── main.py              # 主程式入口
 ├── config.py            # 設定檔（環境變數、密碼等）
 ├── utils/               # 工具函數模組
-
 │ 
 ├── Dockerfile           # Docker 建置檔
 ├── requirements.txt     # Python 依賴套件
