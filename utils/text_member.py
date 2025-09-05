@@ -10,10 +10,10 @@ from linebot.v3.messaging import (
     ReplyMessageRequest, TextMessage,
     FlexMessage, FlexContainer
 )
-import config
 
-API_KEY = config.API_KEY
-API_PAGE = config.PAGE_Orders
+API_KEY = 'S0lBRXU1UkhIaVh2NnQzaVR3Y2NyeDczbm5VU3ptTHcrMEFydGxqN1BQQjM3UVFIU0phZ0V1RkQvTTR1dDZBdQ=='
+
+API_PAGE = 'https://ap14.ragic.com/GoodsRecord/inventory-management2/36?PAGEID=ll4'
 
 def fill_empty(val):
     if pd.isna(val) or (isinstance(val, str) and val.strip() == ""):
@@ -57,7 +57,7 @@ def get_member_summary(member_id, api_page, api_key):
 
     # 若商品不存在，回傳空資料格式
     if df_product.empty:
-        df_tel = df[df["會員電話"].notna()].copy()
+        df_tel = df[["會員電話", "會員姓名","會員ID"]].dropna().copy()
         df_tel.loc[:, "會員電話"] = df_tel["會員電話"].str.replace(r"[^0-9]", "", regex=True)
         return None,None,df_tel
     
@@ -245,9 +245,13 @@ def final_text_member(text):
         df1, df2, df_tel = get_member_summary(member_id, API_PAGE, API_KEY)
         message = text_message_member(df1, df2)
         return message
+    elif text in df_tel["會員姓名"].values:
+        member_id = df_tel.loc[df_tel["會員姓名"] == text, "會員ID"].iloc[0]
+        df1, df2, df_tel = get_member_summary(member_id, API_PAGE, API_KEY)
+        message = text_message_member(df1, df2)
+        return message
     else:
         return None
-
 
 
 #df_summary_1,df_summary_2,df_summary_3 = get_member_summary("M1036", API_PAGE, API_KEY)
@@ -258,3 +262,4 @@ def final_text_member(text):
 #a=final_text_member("M1036")
 #a=final_text_member("0998-654287")
 #print(a)
+
