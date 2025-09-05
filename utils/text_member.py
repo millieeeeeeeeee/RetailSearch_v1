@@ -254,12 +254,16 @@ def final_text_member(text):
         return None
 
 
-#df_summary_1,df_summary_2,df_summary_3 = get_member_summary("M1036", API_PAGE, API_KEY)
+
+#df_summary_1,df_summary_2,df_tel = get_member_summary("顏濤甯", API_PAGE, API_KEY)
 #print(df_summary_1)
 #print(df_summary_2)
-#print(df_summary_3)
+#print(df_tel)
+
+#member_id = df_tel.loc[df_tel["會員電話"] == "謝又姝", "會員ID"].iloc[0]
+#print(member_id)
 
 #a=final_text_member("M1036")
 #a=final_text_member("0998-654287")
+#a=final_text_member("顏濤甯")
 #print(a)
-
