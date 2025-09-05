@@ -201,7 +201,7 @@ def text_message_order(df1,df2):
                     },
                     {
                         "type": "text",
-                        "text": f'x{df2["商品數量"].iat[0]}',
+                        "text": f'x{df2["商品數量"].iat[i]}',
                         "size": "xs",
                         "align": "start",
                         "flex": 1
@@ -447,4 +447,5 @@ def final_text_order(text):
 
 #a=final_text_order("O0002")
 #print(a)
+
 
